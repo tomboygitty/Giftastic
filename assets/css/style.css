@@ -1,0 +1,29 @@
+div, form {
+    margin: 5px;
+}
+
+body {
+    background-color: lightgray;
+}
+
+form {
+    float: right;
+    font-weight: bold;
+    width: 320px;
+}
+
+button {
+    margin: 5px;
+}
+
+#topic-input {
+    width: 100%;
+}
+
+#addtopic {
+    margin-top: 10px;
+}
+
+#display-gifs {
+    display: inline-block;
+}
