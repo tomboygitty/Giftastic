@@ -1,10 +1,12 @@
 // Declare initial array of button topics
-var array = ["Satoshi Kon", "David Lynch", "Guillermo del Toro", "Alfred Hitchcock", "Hayao Miyazaki", "Hideo Kojima", "Stanley Kubrick", "Mamoru Oshii", "Wes Anderson"];
+var topics = ["Satoshi Kon", "David Lynch", "Guillermo del Toro", "Alfred Hitchcock", "Hayao Miyazaki", "Akira Kurosawa", "Hideo Kojima", "Stanley Kubrick", "Coen Brothers", "David Fincher", "Mamoru Oshii", "Wes Anderson", "Kunihiko Ikuhara"];
 
 // Initialize function to populate button div with buttons from the array
 function Initialize() {
-    for (var i = 0; i < array.length; i++) {
-        addButton(array[i]);
+    // Clear any topic buttons
+    $("#display-buttons").empty();
+    for (var i = 0; i < topics.length; i++) {
+        addButton(topics[i]);
     }
 };
 
@@ -65,9 +67,6 @@ $(document).on("click", "button", function() {
 // When still/gif is clicked, reverse state
 $(document).on("click", ".gif", function() {
     var state = $(this).attr("data-state");
-    // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-    // Then, set the image's data-state to animate
-    // Else set src to the data-still value
     if (state === "still") {
         $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
@@ -81,5 +80,6 @@ $(document).on("click", ".gif", function() {
 $(document).on("click", "#addtopic", function() {
     event.preventDefault();
     var topic = $("#topic-input").val();
-    addButton(topic);
+    topics.push(topic);
+    Initialize();
 });
